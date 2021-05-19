@@ -1,0 +1,26 @@
+modelled.variable,variable.level,variable.code,degreefreedom,par.estimate,std.err,chisquare,p.val,hazardratio,low.conf,high.conf
+Age,Age,,1 ,0.00412 ,0.00410 ,1.0122 ,0.3144 ,1.004 ,0.996 ,1.012 
+Female,Female ,1 ,1 ,0.18988 ,0.10657 ,3.1745 ,0.0748 ,1.209 ,0.981 ,1.490 
+ECOG performance status (0),1,1 ,1 ,0.57297 ,0.13135 ,19.0297 ,<.0001 ,1.774 ,1.371 ,2.294 
+ECOG performance status (0),2,2 ,1 ,0.97138 ,0.18837 ,26.5922 ,<.0001 ,2.642 ,1.826 ,3.821 
+ECOG performance status (0),3,3 ,1 ,0.90712 ,0.32981 ,7.5649 ,0.0060 ,2.477 ,1.298 ,4.728 
+ECOG performance status (0),4,4 ,1 ,0.52042 ,0.73760 ,0.4978 ,0.4805 ,1.683 ,0.396 ,7.143 
+Body mass index (<18 kg/m2),18-25 ,2 ,1 ,-0.89336 ,0.26050 ,11.7605 ,0.0006 ,0.409 ,0.246 ,0.682 
+Body mass index (<18 kg/m2),26-29,3 ,1 ,-0.79140 ,0.26263 ,9.0800 ,0.0026 ,0.453 ,0.271 ,0.758 
+Body mass index (<18 kg/m2),?30,4 ,1 ,-1.04369 ,0.26678 ,15.3056 ,<.0001 ,0.352 ,0.209 ,0.594 
+Race (White),Asian ,Asian ,1 ,0.92603 ,0.52759 ,3.0808 ,0.0792 ,2.524 ,0.898 ,7.100 
+Race (White),Black ,Black ,1 ,-0.38232 ,0.23792 ,2.5821 ,0.1081 ,0.682 ,0.428 ,1.088 
+Race (White),Other,Other ,1 ,0.28054 ,0.52941 ,0.2808 ,0.5962 ,1.324 ,0.469 ,3.737 
+Cancer Type (Melanoma),Non-small cell lung,2 ,1 ,0.34361 ,0.15835 ,4.7089 ,0.0300 ,1.410 ,1.034 ,1.923 
+Cancer Type (Melanoma),Head and neck,3 ,1 ,-0.12197 ,0.27285 ,0.1998 ,0.6549 ,0.885 ,0.519 ,1.511 
+Cancer Type (Melanoma),Renal cell,4 ,1 ,0.13341 ,0.22342 ,0.3566 ,0.5504 ,1.143 ,0.737 ,1.771 
+Cancer Type (Melanoma),Bladder,5 ,1 ,0.17018 ,0.28235 ,0.3633 ,0.5467 ,1.186 ,0.682 ,2.062 
+Cancer Type (Melanoma),Hematologic ,6 ,1 ,-0.19664 ,0.29365 ,0.4484 ,0.5031 ,0.821 ,0.462 ,1.461 
+Cancer Type (Melanoma),Other,7 ,1 ,0.33035 ,0.17716 ,3.4772 ,0.0622 ,1.391 ,0.983 ,1.969 
+Duration of IO (?6 weeks),6-12 weeks,2 ,1 ,-0.87116 ,0.13224 ,43.3961 ,<.0001 ,0.418 ,0.323 ,0.542 
+Duration of IO (?6 weeks),12-24 weeks,3 ,1 ,-1.07131 ,0.14882 ,51.8233 ,<.0001 ,0.343 ,0.256 ,0.459 
+Duration of IO (?6 weeks),?24 weeks ,4 ,1 ,-2.46329 ,0.15553 ,250.8409 ,<.0001 ,0.085 ,0.063 ,0.116 
+Line of therapy (Line 1),Line 2,2 ,1 ,0.43879 ,0.13464 ,10.6206 ,0.0011 ,1.551 ,1.191 ,2.019 
+Line of therapy (Line 1),Line 3,3 ,1 ,0.34009 ,0.13599 ,6.2541 ,0.0124 ,1.405 ,1.076 ,1.834 
+Heart failure,Heart failure ,0 ,1 ,-0.24093 ,0.18056 ,1.7805 ,0.1821 ,0.786 ,0.552 ,1.120 
+History of myocardial infarcation,History of myocardial infarcation ,0 ,1 ,-0.04957 ,0.13566 ,0.1335 ,0.7148 ,0.952 ,0.729 ,1.242 

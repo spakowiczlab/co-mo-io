@@ -1,0 +1,74 @@
+---
+title: "Forrest plot"
+author: "Rebecca Hoyd"
+date: "April 10, 2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(ggforce)
+library(forcats)
+library(stringr)
+```
+
+
+```{r}
+addit.tab <- read.csv("new_model.csv", stringsAsFactors = F)
+
+addit.xlabs <- addit.tab %>%
+  mutate(manhrlabs = paste0(round(hazardratio, 2),
+                            " (",
+                            round(low.conf, 2),
+                            ", ", 
+                            round(high.conf, 2),
+                            ")"),
+         nchar.hr = nchar(manhrlabs, type = "width"),
+         pval.form = round(as.numeric(gsub("<", "", p.val)), 2),
+         spacealign = str_pad(manhrlabs, 24, "right"),
+         manxlabs = paste0(spacealign,
+                           ifelse(pval.form == 0, "<.01", pval.form))
+         )
+         
+```
+
+```{r}
+addit.tab %>%
+  mutate(variable.level = gsub("\\?", ">", variable.level),
+         variable.level = gsub("infarcation", "infarction", variable.level),
+         modelled.variable = gsub("\\?", "\u2264",
+                                  modelled.variable),
+         modelled.variable = gsub("Female", "Sex (Male)", modelled.variable),
+         modelled.variable = gsub("m2", "m\xB2", modelled.variable),
+         # variable.level = gsub("\\s+$", "", variable.level),
+         variable.level = fct_relevel(variable.level, "Other", ">30", "26-29",  "4", "3", "2", "1",
+                                      "Line 3", "Line 2")) %>%
+  ggplot(aes(x = variable.level, y = hazardratio)) +
+  facet_col(vars(modelled.variable), 
+            strip.position = "left", 
+             scales = "free_y",
+            # ncol = 1
+            space = "free") + 
+  geom_point() +
+  geom_hline(yintercept = 1, linetype =2 ) +
+  geom_segment(aes(xend = variable.level, y = low.conf, yend = high.conf)) +
+  geom_text(aes(label = variable.level, y = high.conf+.5)) +
+  scale_x_discrete(breaks = addit.xlabs$variable.level, labels = addit.xlabs$manxlabs,
+                   position = "top") +
+  theme_bw() +
+  theme(plot.title=element_blank(),
+        # axis.text.y = element_blank(),
+        axis.ticks.y=element_blank(),
+        axis.text.x =element_text(face="bold"),
+        axis.title=element_blank(),
+        strip.text.y = element_text(hjust=0,vjust = 1,angle=180,face="bold", size = 12),
+        panel.grid = element_blank()) +
+  coord_flip() +
+  ggsave("addit_forrest-fig.pdf", width = 9, device = cairo_pdf)
+
+```
+
