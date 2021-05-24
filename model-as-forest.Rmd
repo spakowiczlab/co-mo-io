@@ -21,6 +21,12 @@ library(stringr)
 addit.tab <- read.csv("new_model.csv", stringsAsFactors = F)
 
 addit.xlabs <- addit.tab %>%
+  # Mutate to handle variable name formatting
+  mutate(variable.level = gsub("\\?", ">", variable.level),
+         variable.level = gsub("infarcation", "infarction", variable.level),
+         variable.level = fct_relevel(variable.level, "Other", ">30", "26-29",  "4", "3", "2", "1",
+                                      "Line 3", "Line 2")) %>%
+  # Mutate to handle label making
   mutate(manhrlabs = paste0(round(hazardratio, 2),
                             " (",
                             round(low.conf, 2),
@@ -40,6 +46,7 @@ addit.xlabs <- addit.tab %>%
 addit.tab %>%
   mutate(variable.level = gsub("\\?", ">", variable.level),
          variable.level = gsub("infarcation", "infarction", variable.level),
+         madelled.variable = gsub("infarcation", "infarction", modelled.variable),
          modelled.variable = gsub("\\?", "\u2264",
                                   modelled.variable),
          modelled.variable = gsub("Female", "Sex (Male)", modelled.variable),
@@ -65,7 +72,7 @@ addit.tab %>%
         axis.ticks.y=element_blank(),
         axis.text.x =element_text(face="bold"),
         axis.title=element_blank(),
-        strip.text.y = element_text(hjust=0,vjust = 1,angle=180,face="bold", size = 12),
+        strip.text.y.left = element_text(hjust=0,vjust = 1,angle=0,face="bold", size = 12),
         panel.grid = element_blank()) +
   coord_flip() +
   ggsave("addit_forrest-fig.pdf", width = 9, device = cairo_pdf)
