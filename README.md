@@ -1,4 +1,5 @@
-# co-mo-io
+# co-mo-io [![DOI](https://zenodo.org/badge/368562780.svg)](https://zenodo.org/badge/latestdoi/368562780)
+
 The effect of co-morbidities on immunotherapy response.
 
 Analyses and visualizations to support the manuscript:
